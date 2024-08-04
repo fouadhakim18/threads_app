@@ -5,7 +5,7 @@ import { fetchUser } from "@/lib/actions/user.actions";
 import PostThread from "@/components/forms/PostThread";
 const CreateThread = async () => {
   const user = await currentUser();
-  if (!user) return;
+  if (!user) return redirect("/sign-in");
   const userInfo = await fetchUser(user.id);
 
   if (!userInfo?.onboarded) {

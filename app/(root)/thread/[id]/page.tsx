@@ -8,7 +8,7 @@ import Comment from "@/components/forms/Comment";
 
 const Page = async ({ params }: { params: { id: string } }) => {
   const user = await currentUser();
-  if (!user) return;
+  if (!user) return redirect("/sign-in");
   const userInfo = await fetchUser(user.id);
   if (!userInfo?.onboarded) redirect("/onboarding");
 
@@ -22,6 +22,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
           id={thread._id}
           currentUserId={user?.id || ""}
           parentId={thread.parentId}
+          image={thread.image}
           content={thread.text}
           author={thread.author}
           createdAt={thread.createdAt}
@@ -45,6 +46,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
             id={comment._id}
             currentUserId={user?.id || ""}
             parentId={comment.parentId}
+            image={comment.image}
             content={comment.text}
             author={comment.author}
             createdAt={comment.createdAt}

@@ -159,3 +159,9 @@
 .comment-form_btn {
   @apply rounded-3xl bg-primary-500 px-8 py-2 !text-small-regular text-light-1 max-xs:w-full !important;
 }
+
+/* Add thread  */
+
+.thread-form_image-label {
+  @apply flex h-24 w-24 items-center justify-center rounded-md bg-dark-4 !important;
+}

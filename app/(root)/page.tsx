@@ -16,19 +16,25 @@ export default async function Home() {
           <p className="no-result">No threads found</p>
         ) : (
           <>
-            {result.threads.map((thread) => (
-              <ThreadCard
-                key={thread._id}
-                id={thread._id}
-                currentUserId={user?.id || ""}
-                parentId={thread.parentId}
-                content={thread.text}
-                author={thread.author}
-                createdAt={thread.createdAt}
-                comments={thread.children}
-                community={thread.community}
-              />
-            ))}
+            {result.threads.map(
+              (thread) => (
+                console.log("THREAD IMAGE", thread.image),
+                (
+                  <ThreadCard
+                    key={thread._id}
+                    id={thread._id}
+                    currentUserId={user?.id || ""}
+                    parentId={thread.parentId}
+                    image={thread.image}
+                    content={thread.text}
+                    author={thread.author}
+                    createdAt={thread.createdAt}
+                    comments={thread.children}
+                    community={thread.community}
+                  />
+                )
+              )
+            )}
           </>
         )}
       </section>
